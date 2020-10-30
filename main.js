@@ -16,11 +16,8 @@ app.get('/', (req, res) => {
 
 const quizData = require('./scripts/quizData')
 app.get('/question', (req, res) => {
-  let currentQuestion = quizData.data()
   res.render('question', {
-    question: currentQuestion.question,
-    incorrectAs: currentQuestion.incorrect,
-    correctA: currentQuestion.correct
+    questions: quizData.data()
   })
 })
 

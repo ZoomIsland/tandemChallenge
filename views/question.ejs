@@ -2,10 +2,11 @@
 <html lang="en">
   <%- include('./partials/head') %>
 <body>
-  <h2><%= question %></h2>
-  <% incorrectAs.forEach(a => { %>
-    <button><%= a %></button>
+  <% questions.forEach(q => { %>
+    <h2><%= q.question %></h2>
+    <% q.answers.forEach(a => { %>
+      <button><%= a.answer %></button>
+    <% }) %>
   <% }) %>
-  <button><%= correctA %></button>
 </body>
 </html>
