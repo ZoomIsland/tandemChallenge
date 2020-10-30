@@ -2,9 +2,11 @@
 <html lang="en">
   <%- include('./partials/head') %>
 <body>
-  <h1>Tandem Quiz by Zach Milan</h1>
-  <button class="startBtn">Start!</button>
-  <%- include('./partials/questions', {questions: questions}) %>
-  <%- include('./partials/results') %>
+  <%- include('./partials/header') %>
+  <main>
+    <button class="startBtn">Start!</button>
+    <%- include('./partials/questions', {questions: questions}) %>
+    <%- include('./partials/results') %>
+  </main>
 </body>
 </html>

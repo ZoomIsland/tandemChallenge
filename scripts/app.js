@@ -20,7 +20,9 @@ $(".answerBtn").on("click", (event) => {
     responseDiv.children(".correctAnswer").removeClass("hidden")
   }
   target.prop("disabled", true)
+  target.removeClass("answerBtn")
   target.siblings().prop("disabled", true)
+  target.siblings().removeClass("answerBtn")
   target.parent().parent().children('.nextBtn').removeClass("hidden")
 })
 
@@ -33,16 +35,21 @@ $(".nextBtn").on("click", () => {
   } else {
     const resultsDiv = $(".results")
     const result = (answers.length / 10) * 100;
-    resultsDiv.children('.resultText').text(`You answered ${result}% correct!`)
+    resultsDiv.children('.resultText').text(resultText(result))
     resultsDiv.removeClass("hidden");
   }
 })
 
-
-
-//upon clicking start/next
-  //new question is made visible on the questionContainer
-
-//upon answer
-  //all other answer buttons are disabled
-  // "next" button is appended
+function resultText(result) {
+  let resultText = `You answered ${result}% correct!`
+  if (result < 50) {
+    resultText += " Not great... Try again and see if you can do better!"
+  } else if (result <= 80) {
+    resultText += " I bet you can do even better next time..."
+  } else if (result < 100) {
+    resultText += " Very good! Try again to see if you can get every question right!"
+  } else {
+    resultText += " Wow, you must be some sort of genius."
+  }
+  return resultText;
+}
