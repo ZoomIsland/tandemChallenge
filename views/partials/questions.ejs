@@ -1,0 +1,17 @@
+<section class="questions">
+  <% questions.forEach((q, i) => { %>
+    <div class="<%= `q${i} questionContainer hidden` %>">
+    <h2><%= q.question %></h2>
+    <section class="answers">
+      <% q.answers.forEach(a => { %>
+        <% if (a.answer === q.correct) { %>
+          <button class="answerBtn" value="true"><%= a.answer %></button>
+        <% } else { %>
+          <button class="answerBtn" value="false"><%= a.answer %></button>
+        <% } %>
+      <% }) %>
+    </section>
+    <button class="nextBtn hidden">Next</button>
+    </div>
+  <% }) %>
+</section>

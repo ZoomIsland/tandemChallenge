@@ -9,14 +9,9 @@ app.use(express.static('./'));
 
 app.set('view engine', 'ejs');
 
-app.get('/', (req, res) => {
-  res.render('home')
-})
-
-
 const quizData = require('./scripts/quizData')
-app.get('/question', (req, res) => {
-  res.render('question', {
+app.get('/', (req, res) => {
+  res.render('home', {
     questions: quizData.data()
   })
 })
