@@ -1,7 +1,30 @@
 const quizData = require('../Apprentice_TandemFor400_Data.json');
 
-// think about a test to make sure the data arrives as it should.
-// should probably also test length to be 10+
+// tests to ensure data is correct length
+if (quizData.length < 10) {
+  throw "The received data doesn't have enough questions."
+}
+// tests to ensure data is structured correctly
+quizData.forEach((question, i) => {
+  if (!question.question || !question.correct || !question.incorrect) {
+    throw `The question at index ${i} of received data doesn't have the correct format. It should be \n{question: string, \nincorrect: array of strings, \ncorrect: string}`
+  }
+  if (typeof(question.question) !== "string") {
+    throw `The question at index ${i} should be a string`
+  }
+  if (typeof(question.correct) !== "string") {
+    throw `The correct answer at index ${i} should be a string`
+  }
+  if (!Array.isArray(question.incorrect)) {
+    throw `The incorrect answers at index ${i} should be an array of strings`
+  }
+  question.incorrect.forEach(answer => {
+    if (typeof(answer) !== "string") {
+      throw `The incorrect answers at index ${i} should be an array of strings`
+    }
+  })
+})
+
 
 module.exports = {
   data: function () {
@@ -33,11 +56,5 @@ module.exports = {
       return a.id - b.id
     })
     return changedData.slice(0,10);
-    // console.log(changedData)
-    // let currentQuestion = quizData.pop();
-    // questionsAsked++;
-    // console.log(quizData.length);
-    // console.log(questionsAsked);
-    // return currentQuestion;
   }
 }
