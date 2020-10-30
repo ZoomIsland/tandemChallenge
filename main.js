@@ -13,14 +13,17 @@ app.get('/', (req, res) => {
   res.render('home')
 })
 
+
+const quizData = require('./scripts/quizData')
 app.get('/question', (req, res) => {
+  let currentQuestion = quizData.data()
   res.render('question', {
-    question: "hello?"
+    question: currentQuestion.question,
+    incorrectAs: currentQuestion.incorrect,
+    correctA: currentQuestion.correct
   })
 })
 
-const quizData = require('./scripts/quizData')
-quizData.data();
 
 app.listen(3000, () => {
   console.log('listening')
