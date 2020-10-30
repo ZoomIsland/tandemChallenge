@@ -5,3 +5,10 @@ h1 {
 .hidden {
   display: none;
 }
+
+.wrong {
+  background: red;
+}
+.correct {
+  background: green;
+}

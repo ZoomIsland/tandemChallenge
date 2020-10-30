@@ -11,6 +11,14 @@
         <% } %>
       <% }) %>
     </section>
+    <section class="correctOrWrong">
+      <div class="correctAnswer hidden">
+        <p>You're right! The correct answer was <%= q.correct %>!</p>
+      </div>
+      <div class="wrongAnswer hidden">
+        <p>Sorry, the correct answer was <%= q.correct %>.</p>
+      </div>
+    </section>
     <button class="nextBtn hidden">Next</button>
     </div>
   <% }) %>
