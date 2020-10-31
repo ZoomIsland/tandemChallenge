@@ -63,7 +63,7 @@ button {
 /* containers */
 .questionContainer,
 .results {
-  min-height: 50%;
+  min-height: 25%;
   width: 90%;
   max-width: 800px;
   background: rgba(255,255,255,0.5);
@@ -73,7 +73,6 @@ button {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  height: auto;
 }
 
 /* question classes */
@@ -98,7 +97,7 @@ h2 {
 
 /* results classes */
 .results {
-  height: 50%;
+  height: 35%;
 }
 
 /* function classes */
@@ -129,5 +128,8 @@ h2 {
   .againBtn {
     width: 65vw;
     height: 60px;
+  }
+  .results {
+    height: 50%;
   }
 }
