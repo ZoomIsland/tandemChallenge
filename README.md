@@ -1,5 +1,7 @@
 # tandemChallenge by Zach Milan
-## Visit my portfolio at https://www.zachmagus.com
+Visit my portfolio at https://www.zachmagus.com
+
+### Visit the site at https://zach-milan-tandem-challenge.herokuapp.com/
 
 Note: to use this code from the command line run:
 * npm install
