@@ -1,10 +1,14 @@
 let currentQuestion = 0;
 let currentDivSelect = ".q" + currentQuestion.toString();
 let answers = [];
+const fadeDuration = 250;
+
+$(".questionContainer").hide();
+$(".results").hide();
 
 $(".startBtn").on("click", () => {
-  $(".startBtn").addClass("hidden")
-  $(currentDivSelect).removeClass("hidden");
+  $(".startBtn").hide();
+  $(currentDivSelect).fadeIn(fadeDuration);
 })
 
 $(".answerBtn").on("click", (event) => {
@@ -27,16 +31,20 @@ $(".answerBtn").on("click", (event) => {
 })
 
 $(".nextBtn").on("click", () => {
-  $(currentDivSelect).addClass("hidden");
+  $(currentDivSelect).fadeOut(fadeDuration);
   currentQuestion++;
   currentDivSelect = ".q" + currentQuestion.toString();
   if (currentQuestion < 10) {
-    $(currentDivSelect).removeClass("hidden");
+    setTimeout(() => {
+      $(currentDivSelect).fadeIn(fadeDuration);
+    }, fadeDuration)
   } else {
     const resultsDiv = $(".results")
     const result = (answers.length / 10) * 100;
     resultsDiv.children('.resultText').text(resultText(result))
-    resultsDiv.removeClass("hidden");
+    setTimeout(() => {
+      resultsDiv.fadeIn(fadeDuration);
+    }, fadeDuration)
   }
 })
 

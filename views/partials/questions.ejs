@@ -1,6 +1,6 @@
 <section class="questions">
   <% questions.forEach((q, i) => { %>
-    <div class="<%= `q${i} questionContainer hidden` %>">
+    <div class="<%= `q${i} questionContainer` %>">
     <h2><%= q.question %></h2>
     <section class="answers">
       <% q.answers.forEach(a => { %>
